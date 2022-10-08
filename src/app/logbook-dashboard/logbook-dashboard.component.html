@@ -1,0 +1,39 @@
+<p>{{nameTest}}</p>
+<p>Total Enters: {{counter}}</p>
+
+<h2>{{person.namePerson | uppercase}} Details</h2>
+<div><span>Identificador: </span>{{person.idPerson}}</div>
+<div><span>Names: </span>{{person.namePerson}}</div>
+
+<div>
+    <h2 for="name">Enter Person Name: </h2>
+    <input id="name" [(ngModel)]="person.namePerson" placeholder="name">
+</div>
+
+<h2>My Persons</h2>
+<ul class="person">
+  <li *ngFor="let item of person_list">
+    <span class="badge">{{item.idPerson}}</span> {{item.namePerson}}
+    <button style="background-color: rgb(68, 139, 231);
+                 margin: 10px;
+                 color: white;
+                 height: 30px;"
+            type="button"
+            (click)="onSelect(item)">Edit Name Person</button>
+  </li>
+</ul>
+
+<!--<img src="{{imagePath}}"/>-->
+
+<canvas id="canvas" 
+            style="border: 1px solid rgb(251, 2, 2);"
+            (click)="doClick($event)">
+
+<app-canvas></app-canvas>
+
+<p id="clear">clear</p>
+           
+</canvas>
+
+
+
