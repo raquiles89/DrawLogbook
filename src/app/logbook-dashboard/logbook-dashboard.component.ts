@@ -1,11 +1,13 @@
 import { Component, OnInit, Input, ElementRef, AfterViewInit, ViewChild, HostListener } from '@angular/core';
 import { Person } from '../interfaces/person';
 import { PERSON_LIST } from '../interfaces/person_list';
+//import { AppconfigService } from '../core/appconfig.service';
 
 
 //Canvas
 import { fromEvent } from 'rxjs';
 import { switchMap, takeUntil, pairwise } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -65,6 +67,7 @@ export class LogbookDashboardComponent implements OnInit {
 
 
   imagePath = '../assets/img/logbookapollo.png';
+  serverName = environment.serverName;
   nameTest = "Name: Rafael Quiles";
   person: Person = {
     idPerson: 1,
