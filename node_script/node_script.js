@@ -1,4 +1,4 @@
-//GET Read IP Address
+
 var os = require('os');
 
 var networkInterfaces = os.networkInterfaces();
@@ -30,11 +30,28 @@ if(ipServer == '10.0.0.68'){
 }
 console.log("The server IP is: " + ipServer);
 
+
+var textEnviroment = ''
++ 'import { ServerName } from \'src/app/core/ServerType\'' + '\n\n'
++ 'export const environment = {' + '\n'
++ 'production: true,' + '\n'
++ 'apiUrl: \'http://livetrack.atcompass.net/ws/WSHOS.asmx\',' + '\n'
++ 'fmcsaexporttest:0,' + '\n'
++ 'dashboardTickUpdate: 120000,' + '\n'
++ 'demo_credential: null,' + '\n'
++ 'serverName: \''  + serverDomain + '\', //canada' + '\n'
++ 'applogs: false,' + '\n'
++ 'appCountry: 2,' + '\n'
++ 'allPermitions: 1 // if server is Blue Star always allPermitions: 1' + '\n'
++ '};' + '\n';
+
+
 //Write IP Addres in file
 //var pathFile = 'C://Work//AngularHOS//AngularGitHubRepo//DrawLogbook//server.ip.encode.js'
-var pathFile = 'C://inetpub//wwwroot//draw-logbook//DrawLogbook//server.ip.encode.js';
+//var pathFile = 'C://inetpub//wwwroot//draw-logbook//DrawLogbook//server.ip.encode.js';
+var pathFile = 'C://inetpub//wwwroot//draw-logbook//DrawLogbook//src//environments//environment.prod.ts';
 fs = require('fs');
-fs.writeFile(pathFile, serverDomain, function (err) {
+fs.writeFile(pathFile, textEnviroment, function (err) {
   if (err) return console.log(err);
   console.log('Document save.OK');
 });
