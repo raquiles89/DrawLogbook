@@ -31,14 +31,16 @@ if(ipServer == '10.0.0.68'){
 console.log("The server IP is: " + ipServer);
 
 //Write IP Addres in file
+//var pathFile = 'C://Work//AngularHOS//AngularGitHubRepo//DrawLogbook//server.ip.encode.js'
+var pathFile = 'C://inetpub//wwwroot//draw-logbook//DrawLogbook//server.ip.encode.js';
 fs = require('fs');
-fs.writeFile('C://Work//AngularHOS//AngularGitHubRepo//DrawLogbook//server.ip.encode.js', serverDomain, function (err) {
+fs.writeFile(pathFile, serverDomain, function (err) {
   if (err) return console.log(err);
   console.log('Document save.OK');
 });
 
 //Read File
-fs.readFile('C://Work//AngularHOS//AngularGitHubRepo//DrawLogbook//server.ip.encode.js', 'utf8', function (err,data) {
+fs.readFile(pathFile, 'utf8', function (err,data) {
 	if (err) {
 	  return console.log(err);
 	}
