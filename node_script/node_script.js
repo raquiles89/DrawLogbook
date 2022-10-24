@@ -20,7 +20,7 @@ for (const name of Object.keys(networkInterfaces)) {
         // Skip over non-IPv4 and internal (i.e. 127.0.0.1) addresses
         // 'IPv4' is in Node <= 17, from 18 it's a number 4 or 6
         const familyV4Value = typeof net.family === 'string' ? 'IPv4' : 4
-        if (net.family === familyV4Value && !net.internal && name === 'Wi-Fi') {
+        if (net.family === familyV4Value && !net.internal && (name === 'Wi-Fi' || name === 'Ethernet')) {
             if (!results[name]) {
                 results[name] = [];
             }
@@ -28,8 +28,12 @@ for (const name of Object.keys(networkInterfaces)) {
         }
     }
 }
-
-var ipServer = results['Wi-Fi'][0];
+var ipServer = '';
+try {
+    ipServer = results['Wi-Fi'][0];
+} catch (error) {
+    ipServer = results['Ethernet'][0];
+}
 var serverDomain = '';
 /*if(ipServer == '10.0.0.68'){
     serverDomain = 'http://livetrack.atcompass.net/ws/WSHOS.asmx';
