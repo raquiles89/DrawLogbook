@@ -1,5 +1,13 @@
 
+var SName = require('./ServerName');
+var serverName = new SName();
+
+var SType = require('./ServerType');
+var serverType = new SType();
+
 var os = require('os');
+const ServerName = require('./ServerName');
+const ServerType = require('./ServerType');
 
 var networkInterfaces = os.networkInterfaces();
 
@@ -23,12 +31,15 @@ for (const name of Object.keys(networkInterfaces)) {
 
 var ipServer = results['Wi-Fi'][0];
 var serverDomain = '';
-if(ipServer == '10.0.0.68'){
+/*if(ipServer == '10.0.0.68'){
     serverDomain = 'http://livetrack.atcompass.net/ws/WSHOS.asmx';
 }else{
     serverDomain = 'http://10.1.10.33:8082/ws/WSHOS.asmx';
-}
+}*/
+
+serverDomain = serverType.getCurrentServerByIp(ipServer, '80');
 console.log("The server IP is: " + ipServer);
+console.log("The server Domain is: " + serverDomain);
 
 
 var textEnviroment = ''

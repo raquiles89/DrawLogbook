@@ -1,4 +1,4 @@
-class ServerName{
+module.exports = class ServerName{
   
   server33               = 'assureServer33';
   serverEldBackup        = 'eldBackup';

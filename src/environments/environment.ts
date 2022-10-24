@@ -3,17 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 import { ServerName } from 'src/app/core/ServerType';
-//import { Console } from 'console';
-//import * as fs from 'fs';
-//import * as path from 'path';
-
-//var dataServer;
-//Read File
-/*fs.readFile(path.join(__dirname, "server.ip.encode.js"), (err, data) => {
-  if (err) throw err;
-  dataServer = data;
-  console.log(dataServer);
-})*/
 
 export const environment = {
   production: false,
