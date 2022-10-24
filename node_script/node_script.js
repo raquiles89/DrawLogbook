@@ -35,13 +35,13 @@ try {
     ipServer = results['Ethernet'][0];
 }
 var serverDomain = '';
-/*if(ipServer == '10.0.0.68'){
+if(ipServer == '10.0.0.68' || ipServer == '10.1.10.206'){
     serverDomain = 'http://livetrack.atcompass.net/ws/WSHOS.asmx';
 }else{
     serverDomain = 'http://10.1.10.33:8082/ws/WSHOS.asmx';
-}*/
+}
 
-serverDomain = serverType.getCurrentServerByIp(ipServer, '80');
+//serverDomain = serverType.getCurrentServerByIp(ipServer, '80');
 console.log("The server IP is: " + ipServer);
 console.log("The server Domain is: " + serverDomain);
 
