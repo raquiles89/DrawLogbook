@@ -13,7 +13,8 @@ module.exports = class ServerType{
   }
 
   getCurrentServerByIp(ip, port) {
-    if(ip ==  '10.0.0.68' || ip == '10.1.10.206'){
+    //if(ip ==  '10.0.0.68' || ip == '10.1.10.206'){
+    if(ip == '10.1.10.206'){
       return ServerType.livetrack;
     }
     switch (ip) {
